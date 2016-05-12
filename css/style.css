@@ -1,0 +1,13 @@
+img {
+  height: 100%;
+  width: auto;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%
+}
+
+td.twidth {
+  width: 200px !important;
+}

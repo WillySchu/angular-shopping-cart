@@ -8,10 +8,26 @@
   <base href="/">
 </head>
   <body ng-controller='Main as main'>
-    <ws-nav nav-scope=''></ws-nav>
-    <ul>
-      <li ng-repeat='tea in main.teas'>{{tea.name}}</li>
-    </ul>
+    <ws-nav nav-scope='main'></ws-nav>
+
+    <div class="conainer-fluid">
+      <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+          <table class='table'>
+            <tr>
+              <th>
+                Tea:
+              </th>
+              <th colspan=2>
+                Information:
+              </th>
+            </tr>
+            <tr ng-repeat='tea in main.teas | filter: main.search' ws-tea tea-scope='tea'>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <!-- scripts -->
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -20,6 +36,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
     <script src='app/app.js'></script>
     <script src='app/directives/navbar.js'></script>
+    <script src='app/directives/tea.js'></script>
     <script src='app/controllers/main.js'></script>
     <script src='app/services/main.js'></script>
   </body>
