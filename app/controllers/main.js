@@ -1,9 +1,9 @@
 angular.module('app')
   .controller('Main', Main)
 
-Main.$inject = ['Teas'];
+Main.$inject = ['Teas', '$routeParams'];
 
-function Main(Teas) {
+function Main(Teas, $routeParams) {
   const vm = this;
   Teas.getTeas().then(teas => {
     vm.teas = teas;
@@ -13,6 +13,6 @@ function Main(Teas) {
   })
   vm.test = function() {
     console.log(vm);
+    console.log($routeParams.cat);
   }
-  vm.
 }

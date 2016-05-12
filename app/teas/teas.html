@@ -1,0 +1,18 @@
+<div class="conainer-fluid">
+  <div class='row'>
+    <div class='col-md-10 col-md-offset-1'>
+      <table class='table'>
+        <tr>
+          <th>
+            Tea:
+          </th>
+          <th colspan=2>
+            Information:
+          </th>
+        </tr>
+        <tr ng-repeat='tea in main.teas | filter: main.search | filter: main.categorie' ws-tea tea-scope='tea'>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
