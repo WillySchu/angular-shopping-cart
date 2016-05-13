@@ -13,7 +13,8 @@ angular.module('app')
             name: tea.name,
             price: tea.price,
             quantity: parseInt(quantity),
-            id: tea._id
+            id: tea._id,
+            edit: false
           }
         }
       },
@@ -21,8 +22,8 @@ angular.module('app')
         delete this.cart[id];
         this.cartQuantity--;
       },
-      editItem: function() {
-        console.log('editItem');
+      editItem: function(id) {
+        this.cart[id].edit = !this.cart[id].edit;
       },
       cart: {},
       cartQuantity: 0

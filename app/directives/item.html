@@ -1,12 +1,17 @@
 <td>
   {{tea.name}}
 </td>
-<td>
+<td ng-show='!tea.edit'>
   {{tea.quantity}}
+</td>
+<td ng-show='tea.edit'>
+  <input type="text" name="name" ng-model='tea.quantity'>
 </td>
 <td>
   {{(tea.price * tea.quantity) / 100 | currency}}
 </td>
 <td>
-  <button ng-click='main.removeFromCart(tea.id)' class='btn btn-danger' type="button" name="button">REMOVE</button>
+  <button ng-click='main.removeFromCart(tea.id)' class='btn btn-danger' type="button">REMOVE</button>
+  <button ng-show='!tea.edit' ng-click='main.editItem(tea.id)' class='btn btn-default' type="button">EDIT</button>
+  <button ng-show='tea.edit' ng-click='main.editItem(tea.id)' class='btn btn-success' type='button'>SAVE</button>
 </td>
