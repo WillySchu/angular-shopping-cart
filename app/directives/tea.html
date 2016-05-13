@@ -1,4 +1,3 @@
-
 <td>
   <img ng-src="{{tea.imageUrl}}" alt="tea.name">
 <td>
@@ -10,11 +9,15 @@
     <li><strong>In Stock? </strong>{{tea.inStock && 'Yes'|| 'No'}}</li>
     <li><strong>Categories: </strong>
       <span ng-repeat='categorie in tea.categories'>
-        {{categorie}}, 
+        {{categorie}},
       </span>
     </li>
   </ul>
 </td>
 <td>
-
+  <h5>Quantity: </h5>
+  <select ng-model='quantity' class="form-control" name="">
+    <option ng-repeat='num in main.nums track by $index'>{{$index + 1}}</option>
+  </select>
+  <button ng-click='main.addToCart(tea, quantity)' class='btn btn-success btn-block' type="button" name="button"> Add to cart</button>
 </td>
