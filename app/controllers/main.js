@@ -1,9 +1,9 @@
 angular.module('app')
   .controller('Main', Main)
 
-Main.$inject = ['Teas', 'Cart', '$routeParams'];
+Main.$inject = ['Teas', 'Cart', '$routeParams', '$interval'];
 
-function Main(Teas, Cart, $routeParams) {
+function Main(Teas, Cart, $routeParams, $interval) {
   const vm = this;
 
   vm.nums = new Array(10);
@@ -23,4 +23,16 @@ function Main(Teas, Cart, $routeParams) {
   vm.test = function() {
     console.log(vm);
   }
+
+  $interval(function() {
+    var newVal = Math.floor((Math.random() * 179) + 1);
+    console.log(newVal);
+
+    $('.gauge--3 .semi-circle--mask').attr({
+      style: '-webkit-transform: rotate(' + newVal + 'deg);' +
+      '-moz-transform: rotate(' + newVal + 'deg);' +
+      'transform: rotate(' + newVal + 'deg);'
+     });
+  }, 1000);
+
 }
