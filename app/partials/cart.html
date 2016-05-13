@@ -1,7 +1,30 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10">
-      
+      <table class='table'>
+        <tr>
+          <th>
+            Tea:
+          </th>
+          <th>
+            Quantity:
+          </th>
+          <th>
+            Total:
+          </th>
+          <th>
+          </th>
+        </tr>
+        <tr ng-repeat='tea in main.cart' ws-item item-scope='tea'>
+        </tr>
+        <tr ng-if='!main.cartQuantity'>
+          <td colspan=4>
+            <h3>
+              There's nothing in your cart.
+            </h3>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

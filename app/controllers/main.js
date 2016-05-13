@@ -1,14 +1,18 @@
 angular.module('app')
   .controller('Main', Main)
 
-Main.$inject = ['Teas', '$routeParams'];
+Main.$inject = ['Teas', 'Cart', '$routeParams'];
 
-function Main(Teas, $routeParams) {
+function Main(Teas, Cart, $routeParams) {
   const vm = this;
 
   vm.nums = new Array(10);
-  vm.cart = {};
-  vm.cartQuantity = 0;
+  vm.cart = Cart.cart;
+  vm.cartQuantity = Cart.cartQuantity;
+
+  vm.addToCart = Cart.addToCart;
+  vm.removeFromCart = Cart.removeFromCart;
+  vm.editItem = Cart.editItem;
 
   Teas.getTeas().then(teas => {
     vm.teas = teas;
@@ -18,13 +22,5 @@ function Main(Teas, $routeParams) {
   });
   vm.test = function() {
     console.log(vm);
-  }
-  vm.addToCart = function(tea, quantity) {
-    if (vm.cart[tea._id]) {
-      vm.cart[tea._id] += parseInt(quantity);
-    } else {
-      vm.cartQuantity++;
-      vm.cart[tea._id] = parseInt(quantity);
-    }
   }
 }

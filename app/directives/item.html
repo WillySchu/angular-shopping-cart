@@ -1,0 +1,12 @@
+<td>
+  {{tea.name}}
+</td>
+<td>
+  {{tea.quantity}}
+</td>
+<td>
+  {{(tea.price * tea.quantity) / 100 | currency}}
+</td>
+<td>
+  <button ng-click='main.removeFromCart(tea.id)' class='btn btn-danger' type="button" name="button">REMOVE</button>
+</td>
