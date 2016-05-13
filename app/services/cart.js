@@ -26,7 +26,14 @@ angular.module('app')
         this.cart[id].quantity = q;
         this.cart[id].edit = !this.cart[id].edit;
       },
+      getTotal: function() {
+        this.total = 0;
+        for (i in this.cart) {
+          this.total += this.cart[i].subtotal;
+        }
+      },
       cart: {},
-      cartQuantity: 0
+      cartQuantity: 0,
+      total: 0
     }
   })

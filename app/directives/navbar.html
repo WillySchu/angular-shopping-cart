@@ -30,7 +30,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li ng-show='nav.cartQuantity'>
-          <a href="/checkout">Checkout</a>
+          <a ng-click='nav.getTotal()' href="/checkout">Checkout</a>
         </li>
         <li><a href="/cart">Cart({{nav.cartQuantity}})</a></li>
       </ul>

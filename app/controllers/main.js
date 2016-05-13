@@ -13,6 +13,8 @@ function Main(Teas, Cart, $routeParams, $interval) {
   vm.addToCart = Cart.addToCart;
   vm.removeFromCart = Cart.removeFromCart;
   vm.editItem = Cart.editItem;
+  vm.getTotal = Cart.getTotal;
+  vm.total = Cart.total;
 
   Teas.getTeas().then(teas => {
     vm.teas = teas;
@@ -23,16 +25,4 @@ function Main(Teas, Cart, $routeParams, $interval) {
   vm.test = function() {
     console.log(vm);
   }
-
-  $interval(function() {
-    var newVal = Math.floor((Math.random() * 179) + 1);
-    console.log(newVal);
-
-    $('.gauge--3 .semi-circle--mask').attr({
-      style: '-webkit-transform: rotate(' + newVal + 'deg);' +
-      '-moz-transform: rotate(' + newVal + 'deg);' +
-      'transform: rotate(' + newVal + 'deg);'
-     });
-  }, 1000);
-
 }
