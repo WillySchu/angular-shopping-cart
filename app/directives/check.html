@@ -1,0 +1,20 @@
+<td>
+  <img ng-src="{{tea.tea.imageUrl}}" alt="tea.tea.name">
+</td>
+<td>
+  <ul>
+    <li><strong>Price: </strong>{{tea.tea.price / 100 | currency}}</li>
+    <li><strong>Ingredients: </strong>{{tea.tea.ingredients}}</li>
+    <li><strong>Rating: </strong>{{tea.tea.rating}}</li>
+    <li><strong>In Stock? </strong>{{tea.tea.inStock && 'Yes'|| 'No'}}</li>
+    <li><strong>Categories: </strong>
+      <span ng-repeat='categorie in tea.tea.categories'>
+        {{categorie}},
+      </span>
+    </li>
+  </ul>
+</td>
+<td>
+  {{tea.quantity}}
+  {{tea.subtotal / 100 | currency}}
+</td>

@@ -8,6 +8,8 @@ angular.module('app')
       controller: 'Main'
     }).when('/cart', {
       templateUrl: 'app/partials/cart.html'
+    }).when('/checkout', {
+      templateUrl: 'app/partials/checkout.html'
     })
     $locationProvider.html5Mode(true);
   })

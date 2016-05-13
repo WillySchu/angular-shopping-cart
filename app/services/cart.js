@@ -10,10 +10,9 @@ angular.module('app')
         } else {
           this.cartQuantity++;
           this.cart[tea._id] = {
-            name: tea.name,
-            price: tea.price,
+            tea: tea,
             quantity: parseInt(quantity),
-            id: tea._id,
+            subtotal: parseInt(quantity) * tea.price,
             edit: false
           }
         }
@@ -22,7 +21,9 @@ angular.module('app')
         delete this.cart[id];
         this.cartQuantity--;
       },
-      editItem: function(id) {
+      editItem: function(id, q) {
+        this.cart[id].subtotal = this.cart[id].tea.price * q;
+        this.cart[id].quantity = q;
         this.cart[id].edit = !this.cart[id].edit;
       },
       cart: {},
